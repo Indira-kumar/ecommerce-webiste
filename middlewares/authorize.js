@@ -2,7 +2,7 @@ export const authorizeAdmin = (req, res, next) => {
     const currUser = req.user;
   
     try {
-      if (currUser.role=="librarian"){
+      if (currUser.role=="admin"){
       next();
       }
       else{
@@ -18,7 +18,7 @@ export const authorizeStudent = (req, res, next) => {
     const currUser = req.user;
   
     try {
-      if (currUser.role=="student"){
+      if (currUser.role=="shopper"){
       next();
       }
       else{
