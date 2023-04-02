@@ -1,7 +1,7 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import User from "../models/userModel.js";
-import { register, login, logout} from "../controllers/userController.js";
+import { register, login, logout} from "../controllers/authController.js";
 
 describe("register function", () => {
   it("should return 400 if invalid data is provided", async () => {
