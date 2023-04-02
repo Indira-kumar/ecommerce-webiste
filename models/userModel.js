@@ -18,11 +18,11 @@ const User = mongoose.model(
     },
     joinedDate: {
       type: Number,
-      required: true,
+      default: Date.now,
     },
     role: {
-      type: Number,
-      default: 0,
+      type: String,
+      default:"shopper",
       required: true,
     },
     //cart will be updated later.
