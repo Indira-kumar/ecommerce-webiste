@@ -34,7 +34,7 @@ describe('authorizeAdmin middleware', () => {
   });
 });
 
-describe('authorizeStudent middleware', () => {
+describe('authorizeShopper middleware', () => {
   test('should call next() if user is a shopper', () => {
     const req = {
       user: {
@@ -46,15 +46,15 @@ describe('authorizeStudent middleware', () => {
     };
     const next = jest.fn();
 
-    authorizeStudent(req, res, next);
+    authorizeShopper(req, res, next);
 
     expect(next).toHaveBeenCalled();
   });
-//Asumming that librarian should not be allowed to use authorizeStudent end points such as registering book, etc. this test case has been written
+//Asumming that librarian should not be allowed to use authorizeShopper end points such as registering book, etc. this test case has been written
   test('should send "Authorization Denied" if user is not a authorized shopper', () => {
     const req = {
       user: {
-        role: 'shopper'
+        role: 'vendor'
       }
     };
     const res = {
@@ -62,7 +62,7 @@ describe('authorizeStudent middleware', () => {
     };
     const next = jest.fn();
 
-    authorizeStudent(req, res, next);
+    authorizeShopper(req, res, next);
 
     expect(res.send).toHaveBeenCalledWith('Authorization Denied');
   });
