@@ -14,7 +14,7 @@ export const authorizeAdmin = (req, res, next) => {
     }
   };
   
-export const authorizeStudent = (req, res, next) => {
+export const authorizeShopper = (req, res, next) => {
     const currUser = req.user;
   
     try {
